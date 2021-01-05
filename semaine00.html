@@ -1,0 +1,233 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>git</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section>
+					<a href="https://fr.wikipedia.org/wiki/Git">
+						<img src="./images/Git-logo-orange.svg" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+					</a>
+					<h3>Logiciel de gestion de versions décentralisé</h3>
+					<p>
+						<small>Créé par <a href="https://fr.wikipedia.org/wiki/Linus_Torvalds"> Linus Torvalds</a> </small>
+					</p>
+				</section>
+				<section>
+					<a href="https://fr.wikipedia.org/wiki/Linus_Torvalds">
+						<img src="./images/LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+					</a>
+					<p><b>Linus Torvalds </b><br> <small>Créateur de <a href="https://fr.wikipedia.org/wiki/Git">git</a> et auteur du <a href="https://fr.wikipedia.org/wiki/Linux">noyau linux</a></small>
+				</section>
+				<section>
+					<h3>Gestion de versions</h3>
+					<p><small>Une bonne gestion de versions facilite l'intégration du code</small></p>
+					<img src="./images/GestionDeVersions.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
+					<p><small>Cela permet de modifier le code sans affecter des versions précédentes</small></p>
+				</section>
+				<section>
+					<h4>3 états possibles pour les fichiers</h4>
+					<small>
+					<ul>
+						<li><b>Modifié</b>: le fichier a été modifié dans l'espace de travail.</li>
+						<li><b>Indexé</b>: le fichier a été marqué pour faire partie du prochain «commit» vers le dépôt.</li>
+						<li><b>Validé</b>: le fichier est sauvegardé dans le dépôt local.</li>
+					</ul>
+					</small>
+					<br>
+					<br>
+					<a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F"><img src="./images/areas.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;"></a>
+				</section>
+				<section>
+					<a href="https://www.youtube.com/watch?v=HVsySz-h9r4"><h3>Principe de base pour les lignes de commande</h3></a>
+				</section>
+				<section>
+					<section>
+						<h3>Configuration</h3> 
+						<h4>lorsque vous utilisez <b>git</b> pour une première fois</h4>
+						<a href="#" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h3>Installez <b>git</b></h3> 
+						<a href="https://git-scm.com/downloads"> <p>Site web pour installer <b>git</b></p> </a> 
+					</section>
+					<section>
+						<h4>Sous Windows vous pouvez également installer <b>Git BASH</b></h4> 
+						<a href="https://gitforwindows.org"> <p>Site web pour installer <b>Git BASH</b></p> </a> 
+					</section>
+					<section>
+						<h4>Vérifiez la version</h4> 
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ git --version
+						</code></pre>
+					</section>
+					<section>
+						<h4>Définissez vos valeurs de configuration</h4> 
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ git config --global user.name "Prenom Nom"
+							$ git config --global user.email "prenom.nom@polymtl.ca"
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+					<h3>Premiers pas avec <b>git</b></h3>
+					<a href="#" class="navigate-down">
+						<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="178" height="238" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+					</a>
+					</section>
+					<section>
+						<h4>Créez deux nouveaux répertoires</h4> 
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ mkdir depot_local
+							$ mkdir depot_clone
+						</code></pre>
+					</section>
+					<section>
+					<h3>Créez deux fichiers dans le répertoire <b>depot_local</b></h3>
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ cd depot_local
+							$ touch .project  
+							$ touch calcul.py
+							$ ls -la
+						</code></pre>
+					</section>
+					<section>
+						<h3>Ajoutez le code suivant dans le fichier <b>calcul.py</b></h3>
+						<pre data-id="code-animation"><code class="python" data-trim >
+						def add(x, y):
+							pass
+						
+						def substract(x, y):
+							pass
+						
+						def multiply(x, y):
+							pass
+						
+						def divide(x, y):
+							pass
+						
+						def square(x):
+							pass
+						</code></pre>
+					</section>
+					<section>
+					<h4>Initialiser la gestion de version avec <b>git</b> à l'intérieur d'un dossier existant </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git init
+						$ ls -la
+						drwxr-xr-x   6 ericdemers  staff  192 Jan  2 14:54 .
+						drwxr-xr-x   4 ericdemers  staff  128 Jan  2 13:26 ..
+						drwxr-xr-x  13 ericdemers  staff  416 Jan  2 15:03 .git
+						-rw-r--r--   1 ericdemers  staff    0 Jan  2 13:52 .project
+						-rw-r--r--   1 ericdemers  staff  160 Jan  2 14:54 calc.py
+					</code></pre>
+					<p><small>Comme vouz pouvez le voir avec la commande «ls -la» ceci crée un répetoire <b>.git</b> </small></p>
+					</section>
+					<section>
+						<h4>Supprimez la gestion de versions </h4>
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ rm -rf .git
+							$ ls -la
+							drwxr-xr-x   6 ericdemers  staff  192 Jan  2 14:54 .
+							drwxr-xr-x   4 ericdemers  staff  128 Jan  2 13:26 ..
+							-rw-r--r--   1 ericdemers  staff    0 Jan  2 13:52 .project
+							-rw-r--r--   1 ericdemers  staff  160 Jan  2 14:54 calc.py
+						</code></pre>
+						<p><small>Comme vouz pouvez le voir supprimer la gestion de version consiste tout simplement à supprimer le dossier <b>.git</b> </small></p>
+						<h4>Initialisez à nouveau la gestion de versions </h4>						
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ git init
+						</code></pre>
+					</section>
+					<section>
+						<h4> Vérifiez le statut avant de lancer la commande «commit» </h4>
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ git status
+						</code></pre>
+						<small>
+							<p> Cette commande vous permet de passer en revue vos fichiers: </p>
+							<ul>
+								<li><b>Modifiés non indexés</b>: <span style="color:orange;">Untracked files and Changes not staged for commit.</span></li>
+								<li><b>Modifiés indexés</b>: <span style="color:orange;">Changes to be commited.</span></li>
+							</ul>
+						</small>
+					</section>
+					<section>
+						<h4> Ajoutez un fichier .gitignore </h4>
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ touch .gitignore
+						</code></pre>
+						<p> et insérez le contenu suivant </p>
+						<pre data-id="code-animation"><code class="bash" data-trim data-line-numbers>
+							.project  
+							*.pyc  
+						</code></pre>
+					</section>
+				</section>
+				<section>
+					<section>
+					Annuler des opérations (<a href="https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things#_undoing">Undoing Things</a>)
+					</section>
+					<section data-auto-animate>
+						<p>Ajouter des fichiers ou changer le message</p>
+						<p data-id="code-title"><b>git commit --amend</b></p>
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ git commit -m 'Commit initial'
+							$ git add fichier_oublié
+							$ git commit --amend -m 'Nouveau message'
+						</code></pre>
+						<p><small>Vous vous retrouvez avec un seul commit - le deuxième commit remplace les résultats du premier</small></p>
+					</section>
+					<section data-auto-animate>
+						<p>Retirer un fichier de l'état «staged»</p>
+						<p data-id="code-title"><b>git restore --staged</b></p>
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ git restore --staged fichier
+						</code></pre>
+						<p><small>Vous pouvez ensuite faire un commit sans ajouter ce fichier</small></p>
+					</section>
+					<section data-auto-animate>
+						<p>Écraser un fichier à son état précédent</p>
+						<p data-id="code-title"><b>git restore</b></p>
+						<pre data-id="code-animation"><code class="bash" data-trim >
+							$ git restore fichier
+						</code></pre>
+						<p><small>Les modifications au fichier sont perdues et le fichier revient à sont état commit </small></p>
+					</section>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

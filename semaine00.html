@@ -41,7 +41,7 @@
 				</figure>
 			</section>
 			<section>
-				<h3>Gestion de version avec Git</h3>
+				<h3>Gestion de versions avec Git</h3>
 				<h4>3 états possibles pour les fichiers</h4>
 				<small>
 				<ul>
@@ -150,7 +150,7 @@
 					</code></pre>
 				</section>
 				<section>
-				<h4>Initialiser la gestion de version avec <b>git</b> à l'intérieur d'un dossier existant avec la commande «git init» </h4>
+				<h4>Initialiser la gestion de versions avec <b>git</b> à l'intérieur d'un dossier existant avec la commande «git init» </h4>
 				<pre data-id="code-animation"><code class="bash" data-trim >
 					$ git init
 					$ ls -la
@@ -172,7 +172,7 @@
 						-rw-r--r--   1 ericdemers  staff    0 Jan  2 13:52 .project
 						-rw-r--r--   1 ericdemers  staff  160 Jan  2 14:54 calc.py
 					</code></pre>
-					<p><small>Supprimer la gestion de version consiste tout simplement à supprimer le dossier <b>.git</b> </small></p>
+					<p><small>Supprimer la gestion de versions consiste tout simplement à supprimer le dossier <b>.git</b> </small></p>
 					<h4>Initialisez à nouveau la gestion de versions </h4>						
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git init
@@ -203,12 +203,12 @@
 					</code></pre>
 				</section>
 				<section>
-					<h4>Indexez (stage) tous les modifications pour le prochain «commit» vers le dépot </h4>
+					<h4>Indexez («Stage») toutes les modifications pour le prochain «commit» vers le dépot </h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git add --all
 						$ git status
 					</code></pre>
-					<h4>Retirez un fichier indexé (staged)</h4>
+					<h4>Retirez un fichier indexé («staged»)</h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git restore --staged nom_du_fichier
 						$ git status
@@ -223,7 +223,8 @@
 					</code></pre>
 				</section>
 				<section>
-					<small><p> Vous avez oublié de mettre un message à votre «commit» et vous vous retrouvez dans une fenêtre bizarre!</p></small>
+					<h4>Une fenêtre étrange!</h4>
+					<small><p> Vous avez oublié de mettre un message à votre «commit».</p></small>
 					<img src="./images/vi.png" style="height: 300px; margin: 0 0 0 0; background: transparent;">
 					<small>
 						<p>Git a lancé pour vous un éditeur de texte en ligne de commandes, généralement <span class="couleur1">Vi</span> ou <span class="couleur1">Emacs</span> </p>
@@ -243,22 +244,23 @@
 				</section>
 
 				<section>
-					<h4> Obtenir de l'information concernant le dépôt distant </h4>
+					<h4> Obtenez de l'information concernant le dépôt distant </h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git remote -v 
 						$ git branch -a
 					</code></pre>
 				</section>
 				<section>
-					<h3> Pousser les changements dans le dépôt distant </h3>
-					<p>Implémentez d'abord la fonction «multiply» du fichier calcul.py. Ensuite:</p>
+					<h4> Poussez les changements dans le dépôt distant </h4>
+					<small><p>Implémentez d'abord la fonction «multiply» du fichier calcul.py. Ensuite:</p></small>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git diff
 						$ git status
 						$ git add --all 
 						$ git commit -m "Modification de la fonction multiply"
 					</code></pre>
-					<p>Et poussez votre modification vers le dépôt distant</p>
+					<br>
+					<small><p>Mettez à jour, puis poussez votre modification vers le dépôt distant</p></small>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git pull origin master
 						$ git push origin master
@@ -322,30 +324,26 @@
 				</section>
 				<section>
 					<p>Retirez un fichier de l'état «staged»</p>
-					<p data-id="code-title"><b>git restore --staged</b></p>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git restore --staged fichier
 					</code></pre>
 					<br>
 					<p>Écrasez un fichier à son état précédent</p>
-					<p data-id="code-title"><b>git restore</b></p>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git restore fichier
 					</code></pre>
 				</section>
 				<section>
 					<p>Revenir à un état précédent</p>
-					<p data-id="code-title"><b>git reset --hard</b></p>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git reset --hard HEAD@{1}
 					</code></pre>
 				</section>
 				<section>
-					<p data-id="code-title"><b>git revert</b></p>
+					<small><p>Annuler les modifications spécifiées par le troisième parent du présent «commit» et créez une nouveau «commit» avec les modifications annulées.</p></small>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git revert HEAD~3 
 					</code></pre>
-					<small><p>Annuler les modifications spécifiées par le troisième parent du présent du «commit» sous le «HEAD» et créez une nouveau «commit» avec les modifications annulées.</p></small>
 				</section>
 				<section>
 					<p>Mettre temporairement des modifications de côté</p>

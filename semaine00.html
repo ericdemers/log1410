@@ -55,6 +55,7 @@
 				<a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F"><img src="./images/areas.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;"></a>
 			</section>
 			<section>
+				<h4>Définition des concepts</h4>
 				<small>
 					<ul>
 						<li><b><span class="couleur1">Repository</span></b>: Une collection de «commits», dont chacun est une archive conforme du répertoire du projet à une date passée. </li>
@@ -64,6 +65,7 @@
 					</small>
 			</section>
 			<section>
+				<h4>Définition des concepts</h4>
 				<small>
 					<ul>
 						<li><b><span class="couleur1">Commit</span></b></b>: Une photo de votre espace de travail à un moment donné. </li>
@@ -73,6 +75,7 @@
 					</small>
 			</section>
 			<section>
+				<h4>Définition des concepts</h4>
 				<small>
 					<ul>
 						<li><b><span class="couleur1">master</span></b></b>: Le dévelopopement principal dans la plupart des répertoire se fait sur une branche appelée «master». Bien qu'il s'agisse d'un nom par défaut typique, il n'a rien de spécial. </li>
@@ -220,6 +223,17 @@
 					</code></pre>
 				</section>
 				<section>
+					<small><p> Vous avez oublié de mettre un message à votre «commit» et vous vous retrouvez dans une fenêtre bizarre!</p></small>
+					<img src="./images/vi.png" style="height: 300px; margin: 0 0 0 0; background: transparent;">
+					<small>
+						<p>Git a lancé pour vous un éditeur de texte en ligne de commandes, généralement <span class="couleur1">Vi</span> ou <span class="couleur1">Emacs</span> </p>
+					<ul>
+						<li><span class="couleur1">Vi</span>: Appuyez sur «i» (pour insertion) pour entrer un message. Une fois votre message complété, appuyez sur «Esc» et entrez «:wq» (pour write and quit) et appuyez sur «Enter». </li>
+						<li><span class="couleur1">Emacs</span>: Entrez votre message. «Control+C» pour sauvegarder et quitter.</li>
+					</ul>
+					</small>
+				</section>
+				<section>
 					<h4> Obtenir une copie d'un dépôt avec la command <br> «git clone  &lt;url&gt;  &lt;destination&gt; » </h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ cd ../depot_clone
@@ -354,6 +368,15 @@
 					<p><small>Cela signifie que vous ne pouvez pas vraiment perdre vos données une fois qu'ils font parties de votre dépôt.</small></p>
 				</section>
 				<section>
+					<h4>SHA-1 (Secure Hash Algorithm)</h4>
+					<small>
+					<ul>
+						<li><b>Git</b> stocke ses objets en utilisant des hachages <b>SHA-1</b> pour les identifier.</li>
+						<li><b>Hachage</b>: Text &#8594; nombre hexadécimal de 40 caractères</li>
+					</ul>
+					</small>
+				</section>
+				<section>
 					<p>Inspectez la structure d'un «commit»</p>
 					<p data-id="code-title"><b>git cat-file -p</b></p>
 					<pre data-id="code-animation"><code class="bash" data-trim >
@@ -364,21 +387,18 @@
 					</code></pre>
 				</section>
 				<section>
-					<h3>SHA-1 (Secure Hash Algorithm)</h3>
-					<ul>
-						<li><b>Git</b> stocke ses objets en utilisant des hachages SHA&nbsp;-&nbsp;1 pour les identifier.</li>
-						<li>Text &#8594; nombre hexadécimal de 40 caractères</li>
-					</ul>
-				</section>
-				<section>
 					<h3>Exemples de services populaires de gestion de dépôts <b>git</b> sur le web</h3>
-					<a href="https://github.com">
-						<img src="./images/github.png" style="height: 300px; margin: 0 0 0 0; background: transparent;">
+					<a href="https://github.com/explore">
+						<img src="./images/github.png" style="height: 300px; margin: -50px 0 0 0; background: transparent;">
+					</a>
+					
+					<a href="https://gitlab.com/explore">
+						<img src="./images/GitLab_logo.svg" style="height: 100px; margin: -100px 0 0 0; background: transparent;">
 					</a>
 					<br>
-					<a href="https://gitlab.com/explore">
-						<img src="./images/GitLab_logo.svg" style="height: 100px; margin: 0 0 0 0; background: transparent;">
-					</a>
+					<br>
+					<small><a href="https://guides.github.com/introduction/flow/">GitHub flow</a></small>
+					&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <small><a href="https://docs.gitlab.com/ee/topics/gitlab_flow.html">GitLab flow</a></small>
 				</section>
 
 				<section>
@@ -393,9 +413,9 @@
 				<section>
 					<h3>Git Cheat sheets</h3>
 					<small><p>
-						Git-Tower <a href="https://www.git-tower.com/blog/git-cheat-sheet/">[git-tower.com/blog/git-cheat-sheet/]</a> <br>
 						GitHub <a href="https://education.github.com/git-cheat-sheet-education.pdf">[education.github.com/git-cheat-sheet-education.pdf]</a> <br>
 						GitLab <a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf">[about.gitlab.com/images/press/git-cheat-sheet.pdf]</a> <br>
+						Git-Tower <a href="https://www.git-tower.com/blog/git-cheat-sheet/">[git-tower.com/blog/git-cheat-sheet/]</a> <br>
 					</p></small>
 				</section>
 			</div>

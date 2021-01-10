@@ -1,0 +1,30 @@
+
+body:after {
+    content: url(../images/Polytechnique_signature-RGB-inverse-droite_FR.png);
+    transform: scale(0.25);
+    transform-origin: top right;
+    position: fixed;
+    top: 10px;
+    right: 10px; }
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  text-transform: none;
+}
+
+span.couleur1 {
+  color:rgb(0, 255, 251)
+}
+
+span.couleur2 {
+  color: orange
+}
+
+
+
+
+

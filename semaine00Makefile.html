@@ -1,0 +1,136 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Makefile</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section>
+				<a href="https://fr.wikipedia.org/wiki/Make">
+					<img src="./images/gnu-512.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
+				</a>
+				<h3>GNU Make</h3>
+				<p>
+					<small> <span style="color:rgb(50, 80, 119);">Eric Demers, Michel Gagnon et Lévis Thériault</span>    </small>
+				</p>
+            </section>
+            <section>
+                <h3><b>GNU Make</b> </h3>
+                <p>Exécute des commandes pour traiter, compiler et assembler des fichiers</p>
+                <small>
+                    <ul> 
+                        <li>Les dépendances sont spécifiés dans le fichier Makefile.</li>
+                        <li>Le processus de contruction d'un produit est ainsi documenté et automatisé.</li>
+                    </ul>
+                    </small>
+                <br>
+                <br>
+                <img src="./images/Makefile.png" style="height: 100px; margin: 0 auto 4rem auto; background: transparent;">
+
+            </section>
+
+            <section>
+                <h4>GNU Make</h4>
+                <small>
+                <ul>
+                    <li>Si un fichier d'origine est modifié, Make sait recréer ou mettre à jour les fichiers qui en dépendent.</li>
+                    <li>Les fichiers sont ainsi mis à jour que lorsqu'ils en ont besoin.</li>
+                </ul>
+                </small>
+            </section>
+            <section>
+                <h4>GNU Make</h4>
+                <small>
+                <ul>
+                    <li>Il existe maintenant de nombreux outils de construction disponibles, tous basés sur les mêmes concepts que Make.</li>
+                </ul>
+                </small>
+            </section>
+            <section>
+				<h4>Vérifiez votre version de GNU Make</h4>
+				<pre data-id="code-animation"><code class="bash" data-trim >
+					$ make --version
+				</code></pre>
+			</section>
+            <section>
+                <p>Créez votre premier Makefile</p>
+				<pre data-id="code-animation"><code class="bash" data-trim >
+                    $ mkdir MonPremierMakefile
+                    $ cd MonPremierMakefile
+                    $ touch Makefile
+				</code></pre>
+            </section>
+            <section>
+                <p>Ajoutez ces lignes au Makefile</p>
+				<pre data-id="code-animation"><code class="Makefile" data-trim >
+                    salutation: 
+	                    @echo "Bonjour"
+                </code></pre>
+                <p>Et ensuite lancez la commande suivante:</p>
+				<pre data-id="code-animation"><code class="bash" data-trim >
+                    $ make salutation
+				</code></pre>
+            </section>
+            <section>
+                <p>Ajoutez ces lignes au Makefile</p>
+				<pre data-id="code-animation"><code class="Makefile" data-trim >
+                generer:
+                    @echo "Creer des fichiers vides..."
+                    touch file_{1..10}.txt
+
+                nettoyer:
+                    @echo "Nettoyage..."
+                    rm *.txt
+                </code></pre>
+                <p>Et ensuite lancez les commandes suivantes:</p>
+				<pre data-id="code-animation"><code class="bash" data-trim >
+                    $ make generer
+                    $ ls
+                    $ make nettoyer
+                    $ ls
+				</code></pre>
+            </section>
+
+
+            <section>
+                <h3>Références</h3>
+                <small><p>
+                    Make Manual <a href="https://www.gnu.org/software/make/manual/make.html">[gnu.org/software/make/manual/make.html]</a> <br>
+                </p></small>
+            </section>
+            <section>
+                <h3>Makefile Cheat sheets</h3>
+                <small><p>
+                    Rico's cheatsheets <a href="https://devhints.io/makefile">[devhints.io/makefile]</a> <br>
+                </p></small>
+            </section>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

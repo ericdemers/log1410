@@ -270,7 +270,7 @@
 					<h4> Créez une branche pour ajouter une fonctionnalité </h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ git branch calcul-division
-						$ git checkout calcul-division
+						$ git switch calcul-division
 					</code></pre>
 				</section>
 				<section>
@@ -283,7 +283,7 @@
 				<section>
 					<h4> Fusionnez deux branches </h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ git checkout master
+						$ git switch master
 						$ git pull origin master
 						$ git branch --merged
 						$ git merge calcul-division
@@ -299,6 +299,7 @@
 						$ git push origin --delete calcul-division
 					</code></pre>
 				</section>
+
 				<section>
 					Annuler des opérations (<a href="https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things#_undoing">Undoing Things</a>)
 				</section>
@@ -385,6 +386,32 @@
 					</code></pre>
 				</section>
 				<section>
+					<img src="./images/gitSwitchRestore.png" style="height: 500px; margin: 0 0 0 0; background: transparent;">
+					<small><p>Git switch & Git restore <a href="https://www.youtube.com/watch?v=N5PpYGrH6_c">[N5PpYGrH6_c]</a></p></small>
+				</section>
+				<section>
+					<h4> Navigation historique </h4>
+					<p> git checkout </p>
+					<img src="./images/gitNavigationHistorique.png" style="height: 400px; margin: 0 0 0 0; background: transparent;">
+				</section>
+				<section>
+					<h4> Annulez des modifications </h4>
+					<p> git restore </p>
+					<img src="./images/gitRestore.png" style="height: 400px; margin: 0 0 0 0; background: transparent;">
+				</section>
+				<section>
+					<h4> Vérifiez les différences </h4>
+					<p> git diff </p>
+					<img src="./images/gitDiff.png" style="height: 400px; margin: 0 0 0 0; background: transparent;">
+				</section>
+				
+				
+				<section>
+					<h4> Changer de branche </h4>
+					<p> git switch </p>
+					<img src="./images/gitSwitch.png" style="height: 400px; margin: 0 0 0 0; background: transparent;">
+				</section>
+				<section>
 					<h3>Exemples de services populaires de gestion de dépôts <b>git</b> sur le web</h3>
 					<a href="https://github.com/explore">
 						<img src="./images/github.png" style="height: 300px; margin: -50px 0 0 0; background: transparent;">
@@ -413,7 +440,7 @@
 					<small><p>
 						GitHub <a href="https://education.github.com/git-cheat-sheet-education.pdf">[education.github.com/git-cheat-sheet-education.pdf]</a> <br>
 						GitLab <a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf">[about.gitlab.com/images/press/git-cheat-sheet.pdf]</a> <br>
-						Git-Tower <a href="https://www.git-tower.com/blog/git-cheat-sheet/">[git-tower.com/blog/git-cheat-sheet/]</a> <br>
+						Git-Tower <a href="https://www.git-tower.com/blog/git-cheat-sheet">[git-tower.com/blog/git-cheat-sheet]</a> <br>
 					</p></small>
 				</section>
 			</div>

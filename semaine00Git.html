@@ -78,7 +78,7 @@
 				<h4>Définition des concepts</h4>
 				<small>
 					<ul>
-						<li><b><span class="couleur1">master</span></b></b>: Le dévelopopement principal dans la plupart des répertoire se fait sur une branche appelée «master». Bien qu'il s'agisse d'un nom par défaut typique, il n'a rien de spécial. </li>
+						<li><b><span class="couleur1">master</span></b></b>: Une branche dans la plupart des répertoires est appelée «master». Bien qu'il s'agisse d'un nom par défaut typique, il n'a rien de spécial. </li>
 						<li><b><span class="couleur1">HEAD</span></b></b>: «HEAD» est utilisé par votre répertoire pour définir ce qui est actuellement extrait. </li>
 							<ul>
 							<li>Si vous faite un «checkout» d'une branche, alors «HEAD» fait référence à cette branche, indiquant le nom de la branche qui sera mise à jour après la prochaine opération «commit». </li>
@@ -301,52 +301,6 @@
 				</section>
 
 				<section>
-					Annuler des opérations (<a href="https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things#_undoing">Undoing Things</a>)
-				</section>
-				<section>
-					<p>Ajoutez des fichiers ou changez le message</p>
-					<p data-id="code-title"><b>git commit --amend</b></p>
-					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ git commit -m 'Commit initial'
-						$ git add fichier_oublié
-						$ git commit --amend -m 'Nouveau message'
-					</code></pre>
-					<p><small>Vous vous retrouvez avec un seul commit - le deuxième commit remplace les résultats du premier</small></p>
-				</section>
-				<section>
-					<p>Distinguez: restore, reset et revert</p>
-					<small>
-					<ul>
-						<li><span class="couleur1">restore</span>: Retirer des changements du «Staging Area» ou même rejeter les modifications locales non validées.</li>
-						<li><span class="couleur1">reset</span>: Remettre votre environnement local à un «commit» précédent en déplaçant le pointeur de la branche vers l'arrière.</li>
-						<li><span class="couleur1">revert</span>: Ajouter un nouveau «commit» pour annuler les modifications.</li>
-					</ul>
-					</small>
-				</section>
-				<section>
-					<p>Retirez un fichier de l'état «staged»</p>
-					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ git restore --staged fichier
-					</code></pre>
-					<br>
-					<p>Écrasez un fichier à son état précédent</p>
-					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ git restore fichier
-					</code></pre>
-				</section>
-				<section>
-					<p>Revenir à un état précédent</p>
-					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ git reset --hard HEAD@{1}
-					</code></pre>
-				</section>
-				<section>
-					<small><p>Annuler les modifications spécifiées par le troisième parent du présent «commit» et créez une nouveau «commit» avec les modifications annulées.</p></small>
-					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ git revert HEAD~3 
-					</code></pre>
-				</section>
-				<section>
 					<p>Mettre temporairement des modifications de côté</p>
 					<p data-id="code-title"><b>git stash</b></p>
 					<pre data-id="code-animation"><code class="bash" data-trim >
@@ -385,6 +339,43 @@
 						$ git cat-file -p [blob]
 					</code></pre>
 				</section>
+
+				<section>
+					Annuler des opérations (<a href="https://git-scm.com/book/en/v2/Git-Basics-Undoing-Things#_undoing">Undoing Things</a>)
+				</section>
+				<section>
+					<p>Ajoutez des fichiers ou changez le message</p>
+					<p data-id="code-title"><b>git commit --amend</b></p>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git commit -m 'Commit initial'
+						$ git add fichier_oublié
+						$ git commit --amend -m 'Nouveau message'
+					</code></pre>
+					<p><small>Vous vous retrouvez avec un seul commit - le deuxième commit remplace les résultats du premier</small></p>
+				</section>
+				<section>
+					<p>Distinguez: reset, revert et restore</p>
+					<small>
+					<ul>
+						<li><span class="couleur1">reset</span>: Remettre votre environnement local à un «commit» précédent en déplaçant le pointeur de la branche vers l'arrière.</li>
+						<li><span class="couleur1">revert</span>: Ajouter un nouveau «commit» pour annuler les modifications.</li>
+						<li><span class="couleur1">restore</span>: Retirer des changements du «Staging Area» ou même rejeter les modifications locales non validées.</li>
+					</ul>
+					</small>
+				</section>
+				<section>
+					<p>Revenir à un état précédent</p>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git reset --hard HEAD@{1}
+					</code></pre>
+				</section>
+				<section>
+					<small><p>Annuler les modifications spécifiées par le troisième parent du présent «commit» et créez une nouveau «commit» avec les modifications annulées.</p></small>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git revert HEAD~3 
+					</code></pre>
+				</section>
+
 				<section>
 					<img src="./images/gitSwitchRestore.png" style="height: 500px; margin: 0 0 0 0; background: transparent;">
 					<small><p>Git switch & Git restore <a href="https://www.youtube.com/watch?v=N5PpYGrH6_c">[N5PpYGrH6_c]</a></p></small>
@@ -430,6 +421,7 @@
 					<h3>Références</h3>
 					<small><p>
 						Git documentation and downloads <a href="https://git-scm.com">[git-scm.com]</a> <br>
+						Apprendre Git <a href="https://goffinet.gitlab.io/git/git.pdf">[goffinet.gitlab.io/git/git.pdf]</a> <br>
 						Git Tutorial for Beginners: Command-Line Fundamentals <a href="https://www.youtube.com/watch?v=HVsySz-h9r4">[HVsySz-h9r4] </a> <br> 
 						Git from the Bottom Up <a href="http://jwiegley.github.io/git-from-the-bottom-up">[jwiegley.github.io/git-from-the-bottom-up]</a> <br>
 					    Learn Git Branching <a href="https://learngitbranching.js.org/?locale=fr_FR">[learngitbranching.js.org]</a>

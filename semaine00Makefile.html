@@ -46,7 +46,7 @@
                 <small>
                 <ul>
                     <li>Si un fichier d'origine est modifié, Make sait recréer ou mettre à jour les fichiers qui en dépendent.</li>
-                    <li>Les fichiers sont ainsi mis à jour que lorsqu'ils en ont besoin.</li>
+                    <li>Les fichiers sont ainsi mis à jour seulement lorsqu'ils en ont besoin.</li>
                 </ul>
                 </small>
             </section>
@@ -75,8 +75,8 @@
             <section>
                 <p>Ajoutez ces lignes au Makefile</p>
 				<pre data-id="code-animation"><code class="Makefile" data-trim >
-                    salutation: 
-	                    @echo "Bonjour"
+                salutation: 
+                    @echo "Bonjour"
                 </code></pre>
                 <p>Et ensuite lancez la commande suivante:</p>
 				<pre data-id="code-animation"><code class="bash" data-trim >
@@ -84,30 +84,155 @@
 				</code></pre>
             </section>
             <section>
-                <p>Ajoutez ces lignes au Makefile</p>
-				<pre data-id="code-animation"><code class="Makefile" data-trim >
-                generer:
-                    @echo "Creer des fichiers vides..."
-                    touch file_{1..10}.txt
-
-                nettoyer:
-                    @echo "Nettoyage..."
-                    rm *.txt
-                </code></pre>
-                <p>Et ensuite lancez les commandes suivantes:</p>
+                <p>La synthaxe d'une règle typique</p>
 				<pre data-id="code-animation"><code class="bash" data-trim >
-                    $ make generer
-                    $ ls
-                    $ make nettoyer
-                    $ ls
+                    target: prerequisites
+                    &lt;TAB&gt; recipe
 				</code></pre>
             </section>
+            <section>
+                <p>La synthaxe d'une règle typique</p>
+				<pre data-id="code-animation"><code class="bash" data-trim >
+                    cible: prérequis
+                        recette_pour_créer_la_cible
+
+                    prérequis: 
+                        recette_pour_créer_le_prérequis
+                </code></pre>
+                <small>
+                    <ul>
+                        <li>Une règle affirme une dépendance envers des prérequis.</li>
+                        <li>Si la cible est plus ancienne que l'un de ses prérequis, les commandes 
+                            associées à la règle sont exécutées.</li>
+                    </ul>
+                    </small>
+            </section>
+            <section>
+                <p>.PHONY</p>
+                <pre data-id="code-animation"><code class="bash" data-trim >
+                    .PHONY all
+                    all: fichier1.dat fichier2.dat
+                </code></pre>
+                <small><p>.PHONY indique que la cible n'est pas un fichier</p></small>
+            </section>
+            <section>
+                <p>Le métacaractère % <br> (Pattern Rule)</p>
+                <pre data-id="code-animation"><code class="bash" data-trim >
+                    .PHONY all
+                    all: fichier1.dat fichier2.dat
+
+                    %.dat: %.txt
+                        recette_générique_pour_créer_les_cibles 
+                </code></pre>
+                <small><p>La règle générique exprime ici que: 
+                    <ul>
+                    <li>le fichier1.txt est un prérequis au fichier1.dat</li>
+                    <li>le fichier2.txt est un prérequis au fichier2.dat</li>
+                    </ul>
+                </p></small>
+            </section>
+            <section>
+                <p>L'utilisation de variables automatiques <br> <small>Pour améliorer la lisibilité</small></p>
+                <small>
+                <ul>
+                    <li>$@ &nbsp; Le nom de la cible</li>
+                    <li>$^ &nbsp; &nbsp;    Les noms de tous les prérequis (avec les répétitions supprimées) </li>
+                    <li>$ &lt;  &nbsp; &nbsp;   Le nom du premier prérequis</li>
+                    <li>$* &nbsp; &nbsp; &nbsp; Le nom du fichier sans l'extension qui correspond au métacaractère % </li>
+                </ul>
+                </small>
+            </section>
+            <section>
+                <h3>Exemple</h3>
+                <p>
+                    <small><a href=https://github.com/swcarpentry/make-novice>github.com/swcarpentry/make-novice</a></small>
+                </p>
+
+            </section>
+            <section>
+                <p>Une règle pour créer un fichier lafontaine.dat</p>
+                <pre data-id="code-animation"><code class="makefile" data-trim data-noescape >
+                # Analyser la fréquence (répétition des mots)  
+                # dans Les fables de La Fontaine
+
+                lafontaine.dat : livres/lafontaine.txt
+                    python compterlesmots.py livres/lafontaine.txt lafontaine.dat
+                </code></pre>
+            </section>
+            <section>
+                <p>Une règle pour créer le fichier beaudelaire.dat</p>
+                <pre data-id="code-animation"><code class="makefile" data-trim data-noescape >
+                # Analyser la fréquence (répétition des mots)  
+                # dans Les Fleurs du Mal de Charles Beaudelaire
+
+                beaudelaire.dat : livres/beaudelaire.txt
+                    python compterlesmots.py livres/beaudelaire.txt beaudelaire.dat
+                </code></pre>
+            </section>
+            <section>
+                <p>Une règle pour supprimer tous les fichiers *.dat</p>
+                <pre data-id="code-animation"><code class="makefile" data-trim data-noescape >
+                # Supprimer tous les fichiers de données * .dat
+
+                .PHONY : clean
+                    
+                clean : 
+                    rm -f *.dat
+                </code></pre>
+            </section>
+            <section>
+                <p>Les règles pour créer tous les fichiers *.dat</p>
+                <pre data-id="code-animation"><code class="makefile" data-trim data-noescape >
+                # Créer tous les fichiers de données * .dat
+
+                .PHONY : dats
+                dats : lafontaine.dat beaudelaire.dat
+                    
+                lafontaine.dat : livres/lafontaine.txt compterlesmots.py
+                    python compterlesmots.py livres/lafontaine.txt lafontaine.dat
+                    
+                beaudelaire.dat : livres/beaudelaire.txt compterlesmots.py
+                    python compterlesmots.py livres/beaudelaire.txt lafontaine.dat
+                </code></pre>
+            </section>
+            <section>
+                <p>Les mêmes règles  pour créer tous les fichiers *.dat mais en utilisant des variables automatiques</p>
+                <pre data-id="code-animation"><code class="makefile" data-trim data-noescape >
+                # Créer tous les fichiers de données * .dat
+
+                .PHONY : dats
+                    dats : lafontaine.dat beaudelaire.dat
+                    
+                    lafontaine.dat : livres/lafontaine.txt compterlesmots.py
+                        python compterlesmots.py $< $@
+                    
+                    beaudelaire.dat : livres/beaudelaire.txt compterlesmots.py
+                        python compterlesmots.py $< $@
+                </code></pre>
+            </section>
+            <section>
+                <p>Une règle générique  pour créer tous les fichiers *.dat </p>
+                <pre data-id="code-animation"><code class="makefile" data-trim data-noescape >
+                # Créer tous les fichiers de données * .dat
+
+                .PHONY : dats
+                dats : lafontaine.dat beaudelaire.dat
+
+                %.dat : livres/%.txt compterlesmots.py
+	                python compterlesmots.py $< $*.dat
+                </code></pre>
+            </section>
+
+
+
+
 
 
             <section>
                 <h3>Références</h3>
                 <small><p>
                     Make Manual <a href="https://www.gnu.org/software/make/manual/make.html">[gnu.org/software/make/manual/make.html]</a> <br>
+                    Bash Manual <a href="https://www.gnu.org/software/bash/manual/bash.html">[gnu.org/software/bash/manual/bash.html]</a>
                 </p></small>
             </section>
             <section>

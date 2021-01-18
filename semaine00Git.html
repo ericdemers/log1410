@@ -118,13 +118,13 @@
 					<h4>Créez deux nouveaux répertoires</h4> 
 					<pre data-id="code-animation"><code class="bash" data-trim >
 						$ mkdir depot_local
-						$ mkdir depot_clone
+						$ mkdir depot_distant
 					</code></pre>
 				</section>
 				<section>
 				<h3>Créez deux fichiers dans le répertoire <b>depot_local</b></h3>
 					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ cd depot_local
+						$ cd depot_distant
 						$ touch .project  
 						$ touch calcul.py
 						$ ls -la
@@ -237,8 +237,8 @@
 				<section>
 					<h4> Obtenir une copie d'un dépôt avec la command <br> «git clone  &lt;url&gt;  &lt;destination&gt; » </h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ cd ../depot_clone
-						$ git clone ../remote_repo.git .
+						$ cd ../depot_local
+						$ git clone ../depot_distant .
 						$ git log
 					</code></pre>
 				</section>

@@ -208,11 +208,6 @@
 						$ git add --all
 						$ git status
 					</code></pre>
-					<h4>Retirez un fichier indexé («staged»)</h4>
-					<pre data-id="code-animation"><code class="bash" data-trim >
-						$ git restore --staged nom_du_fichier
-						$ git status
-					</code></pre>
 				</section>
 				<section>
 					<h4> Un premier «commit» </h4>
@@ -234,6 +229,14 @@
 					</ul>
 					</small>
 				</section>
+
+				<section>
+					<h4> Configuer le répertoire «depot_distant» pour simuler un dépôt distant </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git config receive.denyCurrentBranch ignore
+					</code></pre>
+				</section>
+
 				<section>
 					<h4> Obtenir une copie d'un dépôt avec la command <br> «git clone  &lt;url&gt;  &lt;destination&gt; » </h4>
 					<pre data-id="code-animation"><code class="bash" data-trim >

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>git suite</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section>
+				<a href="https://fr.wikipedia.org/wiki/Git">
+					<img src="./images/Git-logo-orange.svg" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+				</a>
+				<h3>Retour sur quelques notions</h3>
+				<p>
+					<small> <span style="color:rgb(50, 80, 119);">Eric Demers, Michel Gagnon et Lévis Thériault</span>    </small>
+				</p>
+            </section>
+            <section>
+				<p>C'est quand qu'on fait un <b>commit</b>?</p>
+            </section>
+            <section>
+                <img src="./images/escalade.png" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+                <br>
+                <small><p>Lorsque vous avez atteint un état avec le code dont vous souhaitez vous souvenir.</p>
+                <ul>
+                    <li>Voyez le codage comme escalader une montagne</li> 
+                    <li>Vous montez un peu, puis vous mettez un ancrage</li> 
+                    <li>Vous ne tomberez donc jamais de plus de quelques mètres</li> 
+                </ul>
+                <br>
+                <br>
+                <a href = "https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code">[softwareengineering.stackexchange.com/questions/83837/when-to-commit-code]</a>
+                </small>
+            </section>
+            <section>
+                <p> Lorsque vous travaillez en équipe</p>
+                <small>
+                    <ul>
+                        <li>Faites souvent des <b>commit</b>s dans votre dépôt local </li>
+                        <li>Faites souvent des <b>merge</b>s dans votre dépôt local avec la branche principale du dépôt partagé</li>
+                        <li>Faites des branches pour pouvoir travailler sans déranger personne d'autre</li>
+                        <li>Faites des <b>push / merge</b> seulement lorsque vous avez effectué un changement autonome, complet et bien testé </li>
+                    </ul>
+                    <br>
+                    <br>
+                    <a href = "https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code">[softwareengineering.stackexchange.com/questions/83837/when-to-commit-code]</a>
+                </small>      
+            </section>
+            <section>
+
+                <p>git push --set-upstream</p>
+
+                <pre data-id="code-animation"><code class="bash" data-trim >
+                    $ git push --all origin
+                    $ git push -u origin calcul-division 
+                    $ git push
+                </code></pre>
+
+                <small><a href="https://stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch">[stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch]</a></small>
+            </section>
+            <section>
+                <h3>merge vs rebase</h3>
+                <p>Ne faites jamais de <b>rebase</b> des commits qui ont déjà été poussés sur un dépôt public</p>
+                <small><p>Tiré du livre Pro Git, <a href="https://git-scm.com/book/fr/v2/Les-branches-avec-Git-Rebaser-Rebasing">section 3.6</a></p></small>
+            </section>
+            <section>
+                <h3>git reset</h3>
+                <img src="./images/reset.png" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+
+            
+			
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,117 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Diagramme de classes</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section>
+				<img src="./images/diagrammeDeClasses.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
+				<h3>Diagramme de classes</h3>
+				<p>
+					<small> <span style="color:rgb(50, 80, 119);">Eric Demers, Michel Gagnon et Lévis Thériault</span>    </small>
+				</p>
+            </section>
+            <section>
+                <h4>Différents types d'associations</h4>
+                <img src="./images/associations1.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Agrégation</h4>
+                <img src="./images/agregation.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Composition</h4>
+                <img src="./images/composition.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Généralisation</h4>
+                <img src="./images/generalisation.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Différents types d'associations (suite)</h4>
+                <img src="./images/associations2.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Trois façons équivalentes pour représenter un attribut d'une classe</h4>
+                <img src="./images/associations3.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Les diagrammes de classes sont utilisés pour:</p>
+                <small>
+                <ul>
+                    <li> Explorer les concepts d'un domaine</li>
+                    <li> Analyser les besoins à l'aide d'un modèle conceptuel </li>
+                    <li> Décrire de façon détaillée une conception orienté objet</li>
+                </ul>
+                </small>
+            </section>
+            <section>
+                <p>Point de vue conceptuel et implémentation</p>
+                <img src="./images/conceptuelVSimplementation.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Point de vue conceptuel</p>
+                <small><p>Une association peut être décorée</p></small> 
+                <br>
+                <img src="./images/associationDecoree.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Point de vue implémentation</p>
+                <small><p>Des contraintes peuvent être ajoutées</p></small> 
+                <img src="./images/contraintes.png" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Un ensemble de classes sous une généralisation peut être spécifié</p>
+                <small>
+                    <ul>
+                        <li>complete, incomplete</li>
+                        <li>overlapping, disjoint</li>
+                    </ul>
+                </small> 
+                <br>
+                <br>
+                <img src="./images/overlappingIncomplete.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Associations qualifiées</h4>
+                <img src="./images/associationsQualifiees.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Classes d'association</h4>
+                <img src="./images/classesAssociation.png" style="height: 350px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <h4>Concept de spécification ou de description</h4>
+                <img src="./images/conceptDeSpecification.png" style="height: 200px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Diagrammes d'interaction</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section>
+				<img src="./images/avion.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
+				<h3>Diagrammes d'interaction</h3>
+				<p>
+					<small> <span style="color:rgb(50, 80, 119);">Eric Demers, Michel Gagnon et Lévis Thériault</span>    </small>
+				</p>
+			</section>
+			<section>
+				<h3>Conception basée sur les messages</h3>
+				<p>«Vous n'envoyez pas des messages parce que vous avez des objets, vous avez des objets parce que vous envoyez des messages»</p>
+				<small>
+					<p>Source: Sandi Metz, Practical object-oriented design in Ruby </p>
+				</small>
+			</section>
+            <section>
+                <h4>Diagrammes d'interaction</h4>
+                <img src="./images/interaction.png" style="height: 550px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+			<section>
+				<h4>Éléments majeurs d'un diagramme de séquence</h4>
+				<small><p>Signification des symboles</p></small>
+				<br>
+				<img src="./images/sequenceElements.png" style="height: 350px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+
+			<section>
+				<p>Mise en contexte</p>
+				<small><p> Un client fait appel à un service de planification d'expéditions pour randonnée à vélo.</p></small>
+				<img src="./images/velo1.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+				<br>
+			</section>
+			<section>
+				<p>Prononcez-vous:</p>
+				<small><p> Préférez-vous l'option A ou l'option B?</p></small>
+				<img src="./images/velo2.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+			<section>
+				<p>Vers une cohésion plus forte et un plus faible couplage</p>
+				<small><p> Demander <u>quelque chose</u> plutôt que d'expliquer <u>comment</u> faire les choses.</p></small>
+				<img src="./images/velo3.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+			<section>
+				<p>Prononcez-vous:</p>
+				<small><p> Préférez-vous l'option A ou l'option B?</p></small>
+				<img src="./images/velo4.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+			<section>
+				<p>Rechercher l'indépendance du contexte</p>
+				<small><p> L'objet <u>laRandonnéeÀVélo</u> ne se soucie pas de l'objet <u>leMécanicien</u> et il n'a aucune idée de ce que le mécanicien fera. La confiance aveugle permet aux objets de collaborer sans être totalement dépendant d'un contexte.</p></small>
+				<img src="./images/velo5.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

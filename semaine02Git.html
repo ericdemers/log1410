@@ -57,17 +57,47 @@
                     <a href = "https://softwareengineering.stackexchange.com/questions/83837/when-to-commit-code">[softwareengineering.stackexchange.com/questions/83837/when-to-commit-code]</a>
                 </small>      
             </section>
+
+            <section>
+                <p>Pourquoi associer une branche distante à une branche locale?</p>
+                <small>
+                <ol>
+                    <li>Les commandes push et pull deviennent plus simple à utiliser. </li>
+                    <li>La commande <b>git status</b> peut alors nous donner des informations sur la branche distante</li>
+                </ol>
+                </small>
+                <br>
+                <br>
+                <small>
+                    <a href="https://www.git-tower.com/learn/git/faq/set-upstream/">[git-tower.com/learn/git/faq/set-upstream]</a>
+                </small>
+            </section>
+
             <section>
 
-                <p>git push --set-upstream</p>
+                <small><p style="text-align:left">La façon la plus simple d'associer une branche distante est d'utiliser <b>--set-upstream</b> lorsque vous poussez une branche dans le dépôt distant </p></small>
 
                 <pre data-id="code-animation"><code class="bash" data-trim >
-                    $ git push --all origin
-                    $ git push -u origin calcul-division 
-                    $ git push
+                    $ git push --set-upstream origin &lt;branch&gt; 
                 </code></pre>
 
-                <small><a href="https://stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch">[stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch]</a></small>
+                <small><p style="text-align:left"> Une version plus courte qui fait la même chose </p></small>
+
+                <pre data-id="code-animation"><code class="bash" data-trim >
+                    $ git push -u origin &lt;branch&gt; 
+                </code></pre>
+
+                <small><p style="text-align:left"> Si la branche distante existe déjà ou si vous voulez changer la branche distante associée </p></small>
+
+                <pre data-id="code-animation"><code class="bash" data-trim >
+                    $ git branch -u origin/&lt;branch&gt; 
+                </code></pre>
+
+
+
+
+
+                <!-- <small><a href="https://stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch">[stackoverflow.com/questions/37770467/why-do-i-have-to-git-push-set-upstream-origin-branch]</a></small> -->
             </section>
             <section>
                 <h3>merge vs rebase</h3>

@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>GRASP</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section>
+				<img src="./images/grasp.png" style="height: 250px; margin: 0 auto 4rem auto; background: transparent;">
+                <h3>GRASP</h3>
+                <small><p><b>G</b>eneral <b>R</b>esponsibility <b>A</b>ssignment <b>S</b>oftware <b>P</b>atterns or Principles</p></small>
+				<p>
+					<small> <span style="color:rgb(50, 80, 119);">Eric Demers, Michel Gagnon et Lévis Thériault</span>    </small>
+				</p>
+			</section>
+			<section>
+				<p>Designing objects with responsibilities</p>
+				<small><p>Craig Larman, Applying UML and Patterns 3rd Edition, chap. 17</p></small>
+
+			</section>
+            <section>
+                <p>Patron créateur</p>
+            </section>
+            <section>
+                <p>Quelle classe devrait avoir la responsabilité de créer les 40 cases?</p>
+                <img src="./images/caseMonopoly1.png" style="height: 350px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+				<p>Prononcez-vous:</p>
+				<small><p> Préférez-vous l'option A ou l'option B?</p></small>
+				<img src="./images/caseMonopoly2.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Patron créateur et diagramme UML</p>
+				<img src="./images/caseMonopoly3.png" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Patron expert en information</p>
+            </section>
+            <section>
+                <p>Quelle classe devrait avoir la responsabilité de retourner une case identifiée par son nom?</p>
+				<img src="./images/expertEnInformation1.png" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Patron expert en information et diagramme UML</p>
+				<img src="./images/expertEnInformation2.png" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+            <section>
+                <p>Patron faible couplage</p>
+            </section>
+            <section>
+                <p>Patron faible couplage et diagramme UML</p>
+				<img src="./images/faibleCouplage1.png" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+			<section>
+				<p>Patron contrôleur</p>
+			</section>
+			<section>
+                <p>Patron contrôleur et diagramme UML</p>
+				<img src="./images/controleur1.png" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+			<section>
+				<p>Forte cohésion</p>
+			</section>
+			<section>
+                <p>Patron forte cohésion et diagramme UML</p>
+				<img src="./images/cohesion1.png" style="height: 500px; margin: 0 auto 4rem auto; background: transparent;">
+            </section>
+
+            
+			
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

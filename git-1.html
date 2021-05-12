@@ -1,0 +1,384 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>git</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section>
+                <img src="./images/Git-logo-orange.svg" style="height: 180px; margin: 0 auto 4rem auto; background: transparent;">
+				<h3>Logiciel de gestion de versions décentralisé</h3>
+				<p>
+					<small> <span style="color:rgb(50, 80, 119);">Eric Demers, Michel Gagnon et Lévis Thériault</span>    </small>
+				</p>
+			</section>
+			<section>
+				<a href="https://fr.wikipedia.org/wiki/Linus_Torvalds">
+					<img src="./images/LinuxCon_Europe_Linus_Torvalds_03_(cropped).jpg" style="height: 400px; margin: 0 auto 4rem auto; background: transparent;">
+				</a>
+				<p><b>Linus Torvalds </b><br> <small>Créateur de <a href="https://fr.wikipedia.org/wiki/Git">git</a> et auteur du <a href="https://fr.wikipedia.org/wiki/Linux">noyau linux</a></small>
+			</section>
+			<section>
+				<h3>Gestion de versions</h3>
+				<p>Une bonne gestion de versions facilite l'intégration du code. Cela permet de modifier le code sans affecter des versions précédentes.</p>
+				<figure>
+				<img src="./images/GestionDeVersions.png" style="height: 300px; margin: 0 0 0 0; background: transparent;">
+				<figcaption> <small>Figure préparée par professeur Nikolay Radoev</small></figcaption>
+				</figure>
+			</section>
+			<section>
+				<h3>Gestion de versions avec Git</h3>
+				<h4>3 états possibles pour les fichiers</h4>
+				<small>
+				<ul>
+					<li><b><span class="couleur1">Validé</span></b>: le fichier est sauvegardé dans le dépôt local.</li>
+					<li><b><span class="couleur1">Modifié</span></b>: le fichier a été modifié dans l'espace de travail.</li>
+					<li><b><span class="couleur1">Indexé</span></b>: le fichier a été marqué pour faire partie du prochain «commit» vers le dépôt.</li>
+				</ul>
+				</small>
+				<br>
+				<br>
+				<a href="https://git-scm.com/book/en/v2/Getting-Started-What-is-Git%3F"><img src="./images/areas.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;"></a>
+			</section>
+			<section>
+				<h4>Définition des concepts</h4>
+				<small>
+					<ul>
+						<li><b><span class="couleur1">Repository</span></b>: Une collection de «commits», dont chacun est une archive conforme du répertoire du projet à une date passée. </li>
+						<li><b><span class="couleur1">Working Tree</span></b></b>: Tout répertoire de votre système de fichiers auquel est associé un dépot (par la présence d'un sous-répertoire nommé .git). Il comprend de manière récursive tous les fichiers et sous-répertoires de ce répertoire. </li>
+						<li><b><span class="couleur1">Index (Staging Area)</span></b></b>: Une zone de transit dans laquelle soumettre des modifications de la zone de travail pour les déposer dans le dépôt (repository).</li>
+					</ul>
+					</small>
+			</section>
+			<section>
+				<h4>Définition des concepts</h4>
+				<small>
+					<ul>
+						<li><b><span class="couleur1">Commit</span></b></b>: Une photo de votre espace de travail à un moment donné. </li>
+						<li><b><span class="couleur1">Branch</span></b></b>: Une branche n'est qu'un nom pour un «commit». La liaison de parenté d'un «commit» avec les «commits» précédents définit son histoire, et donc la notion typique de branche de développement.</li>
+						<li><b><span class="couleur1">Tag</span></b>: Un «tag» est également un nom pour un «commit». Il est ainsi similaire à une branche sauf qu'il nomme toujours le même «commit», et peut avoir son propre texte de descripton.</li>
+					</ul>
+					</small>
+			</section>
+			<section>
+				<h4>Définition des concepts</h4>
+				<small>
+					<ul>
+						<li><b><span class="couleur1">master</span></b></b>: Une branche dans la plupart des répertoires est appelée «master». Bien qu'il s'agisse d'un nom par défaut typique, il n'a rien de spécial. </li>
+						<li><b><span class="couleur1">HEAD</span></b></b>: «HEAD» est utilisé par votre répertoire pour définir ce qui est actuellement extrait. </li>
+							<ul>
+							<li>Si vous faite un «checkout» d'une branche, alors «HEAD» fait référence à cette branche, indiquant le nom de la branche qui sera mise à jour après la prochaine opération «commit». </li>
+							<li>Si vous extrayez un «commit» spécifique, alors «HEAD» se réfère uniquement à ce commit. Ceci est appelé «HEAD» détaché et se produit, par exemple, si vous faite un «checkout» d'un «tag». </li>
+						</ul>
+					</ul>
+					</small>
+			</section>
+			<section>
+				<h3>Configuration</h3> 
+				<h4>lorsque vous utilisez <b>git</b> pour une première fois</h4>
+			</section>
+			<section>
+				<h4>Vérifiez si git est déjà installé</h4>
+				<pre data-id="code-animation"><code class="bash" data-trim >
+					$ git --version
+				</code></pre>
+				<img src="./images/versionGit.png" style="height: 300px; background: transparent;">
+				<p>Sinon Installez <b>git</b> <br>
+				<small>
+					Git documentation and downloads <a href="https://git-scm.com">[git-scm.com]</a> <br>
+					Git for Windows (Git BASH) <a href="https://gitforwindows.org">[gitforwindows.org]</a></small>
+				</p> 
+			</section>
+			<section>
+				<h4>Définissez vos valeurs de configuration</h4> 
+				<pre data-id="code-animation"><code class="bash" data-trim >
+					$ git config --global user.name "Prenom Nom"
+					$ git config --global user.email "prenom.nom@polymtl.ca"
+				</code></pre>
+			</section>
+				<section>
+				<h3>Premier exercice avec <b>git</b> </h3>
+				<p><a href="https://www.youtube.com/watch?v=HVsySz-h9r4">[HVsySz-h9r4] </a> </p>
+				</section>
+				<section>
+					<h4>Créez deux nouveaux répertoires</h4> 
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ mkdir depot_local
+						$ mkdir depot_distant
+					</code></pre>
+				</section>
+				<section>
+				<h3>Créez deux fichiers dans le répertoire <b>depot_distant</b></h3>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ cd depot_distant
+						$ touch .project  
+						$ touch calcul.py
+						$ ls -la
+					</code></pre>
+				</section>
+				<section>
+					<h3>Ajoutez le code suivant dans le fichier <b>calcul.py</b></h3>
+					<pre data-id="code-animation"><code class="python" data-trim >
+					def add(x, y):
+						pass
+					
+					def substract(x, y):
+						pass
+					
+					def multiply(x, y):
+						pass
+					
+					def divide(x, y):
+						pass
+					
+					def square(x):
+						pass
+					</code></pre>
+				</section>
+				<section>
+				<h4>Initialiser la gestion de versions avec <b>git</b> à l'intérieur d'un dossier existant avec la commande «git init» </h4>
+				<pre data-id="code-animation"><code class="bash" data-trim >
+					$ git init
+					$ ls -la
+					drwxr-xr-x   6 ericdemers  staff  192 Jan  2 14:54 .
+					drwxr-xr-x   4 ericdemers  staff  128 Jan  2 13:26 ..
+					drwxr-xr-x  13 ericdemers  staff  416 Jan  2 15:03 .git
+					-rw-r--r--   1 ericdemers  staff    0 Jan  2 13:52 .project
+					-rw-r--r--   1 ericdemers  staff  160 Jan  2 14:54 calc.py
+				</code></pre>
+				<p><small>Comme vous pouvez le voir avec la commande «ls -la» ceci crée un répetoire <b>.git</b> </small></p>
+				</section>
+				<section>
+					<h4>Supprimez la gestion de versions </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ rm -rf .git
+						$ ls -la
+						drwxr-xr-x   6 ericdemers  staff  192 Jan  2 14:54 .
+						drwxr-xr-x   4 ericdemers  staff  128 Jan  2 13:26 ..
+						-rw-r--r--   1 ericdemers  staff    0 Jan  2 13:52 .project
+						-rw-r--r--   1 ericdemers  staff  160 Jan  2 14:54 calc.py
+					</code></pre>
+					<p><small>Supprimer la gestion de versions consiste tout simplement à supprimer le dossier <b>.git</b> </small></p>
+					<h4>Initialisez à nouveau la gestion de versions </h4>						
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git init
+					</code></pre>
+				</section>
+				<section>
+					<h4> Vérifiez le statut avant de lancer la commande «commit» </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git status
+					</code></pre>
+					<small>
+						<p> Cette commande vous permet de passer en revue vos fichiers: </p>
+						<ul>
+							<li><b>Modifiés non indexés</b>: <span class = "couleur2">Untracked files and Changes not staged for commit.</span></li>
+							<li><b>Modifiés indexés</b>: <span class = "couleur2">Changes to be commited.</span></li>
+						</ul>
+					</small>
+				</section>
+				<section>
+					<h4> Ajoutez un fichier .gitignore </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ touch .gitignore
+					</code></pre>
+					<h4> et insérez le contenu suivant </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim data-line-numbers>
+						.project  
+						*.pyc  
+					</code></pre>
+				</section>
+				<section>
+					<h4>Indexez («Stage») toutes les modifications pour le prochain «commit» vers le dépot </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git add --all
+						$ git status
+					</code></pre>
+				</section>
+				<section>
+					<h4> Un premier «commit» </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git commit -m "commit initial"
+						$ git status
+						$ git log
+					</code></pre>
+				</section>
+				<section>
+					<h4>Une fenêtre étrange!</h4>
+					<small><p> Vous avez oublié de mettre un message à votre «commit».</p></small>
+					<img src="./images/vi.png" style="height: 300px; margin: 0 0 0 0; background: transparent;">
+					<small>
+						<p>Git a lancé pour vous un éditeur de texte en ligne de commandes, généralement <span class="couleur1">Vi</span> ou <span class="couleur1">Emacs</span> </p>
+					<ul>
+						<li><span class="couleur1">Vi</span>: Appuyez sur «i» (pour insertion) pour entrer un message. Une fois votre message complété, appuyez sur «Esc» et entrez «:wq» (pour write and quit) et appuyez sur «Enter». </li>
+						<li><span class="couleur1">Emacs</span>: Entrez votre message. «Control+C» pour sauvegarder et quitter.</li>
+					</ul>
+					</small>
+				</section>
+
+				<section>
+					<h4> Configurer le répertoire «depot_distant» pour simuler un dépôt distant </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git config receive.denyCurrentBranch ignore
+					</code></pre>
+				</section>
+
+				<section>
+					<h4> Obtenir une copie d'un dépôt avec la command <br> «git clone  &lt;url&gt;  &lt;destination&gt; » </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ cd ../depot_local
+						$ git clone ../depot_distant .
+						$ git log
+					</code></pre>
+				</section>
+
+				<section>
+					<h4> Obtenez de l'information concernant le dépôt distant </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git remote -v 
+						$ git branch -a
+					</code></pre>
+				</section>
+				<section>
+					<h4> Poussez les changements dans le dépôt distant </h4>
+					<small><p>Implémentez d'abord la fonction «multiply» du fichier calcul.py. Ensuite:</p></small>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git diff
+						$ git status
+						$ git add --all 
+						$ git commit -m "Modification de la fonction multiply"
+					</code></pre>
+					<br>
+					<small><p>Mettez à jour, puis poussez votre modification vers le dépôt distant</p></small>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git pull origin master
+						$ git push origin master
+					</code></pre>
+				</section>
+				<section>
+					<h4> Créez une branche pour ajouter une fonctionnalité </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git branch calcul-division
+						$ git switch calcul-division
+					</code></pre>
+				</section>
+				<section>
+					<h4> Poussez une branche dans le dépôt distant </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git push -u origin calcul-division
+						$ git branch -a
+					</code></pre>
+				</section>
+				<section>
+					<h4> Fusionnez deux branches </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git switch master
+						$ git pull origin master
+						$ git branch --merged
+						$ git merge calcul-division
+						$ git push origin master
+					</code></pre>
+				</section>
+				<section>
+					<h4> Supprimez une branche </h4>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git branch --merged
+						$ git branch -d calcul-division
+						$ git branch -a
+						$ git push origin --delete calcul-division
+					</code></pre>
+				</section>
+
+				<section>
+					<p>Mettre temporairement des modifications de côté</p>
+					<p data-id="code-title"><b>git stash</b></p>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git stash  
+						$ git stash pop
+					</code></pre>
+				</section>
+				<section>
+					<p>Affichez le «commit» pointé par «HEAD» ainsi que ses parents</p>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git log
+					</code></pre>
+					<br>
+					<p>Affichez la liste chronologique des «commits» vers lesquels «HEAD» a pointé</p>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git reflog
+					</code></pre>
+					<p><small>Cela signifie que vous ne pouvez pas vraiment perdre vos données une fois qu'ils font parties de votre dépôt.</small></p>
+				</section>
+				<section>
+					<h4>SHA-1 (Secure Hash Algorithm)</h4>
+					<small>
+					<ul>
+						<li><b>Git</b> stocke ses objets en utilisant des hachages <b>SHA-1</b> pour les identifier.</li>
+						<li><b>Hachage</b>: Text &#8594; nombre hexadécimal de 40 caractères</li>
+					</ul>
+					</small>
+				</section>
+				<section>
+					<p>Inspectez la structure d'un «commit»</p>
+					<p data-id="code-title"><b>git cat-file -p</b></p>
+					<pre data-id="code-animation"><code class="bash" data-trim >
+						$ git log
+						$ git cat-file -p  [commit]
+						$ git cat-file -p [tree]
+						$ git cat-file -p [blob]
+					</code></pre>
+				</section>
+
+
+
+				<section>
+					<h3>Références</h3>
+					<small><p>
+						<!-- Git documentation and downloads <a href="https://git-scm.com">[git-scm.com]</a> <br> -->
+						Livre Pro Git et téléchargements <a href="https://git-scm.com/book/fr/v2">[git-scm.com/book/fr/v2]</a><br>
+						<!--Apprendre Git <a href="https://goffinet.gitlab.io/git/git.pdf">[goffinet.gitlab.io/git/git.pdf]</a> <br> -->
+						The Git Parable - a different approach to understanding Git <a href="https://www.youtube.com/watch?v=jm7QsI-nNjk">[jm7QsI-nNjk]</a> <br>
+						<!-- Git from the Bottom Up <a href="http://jwiegley.github.io/git-from-the-bottom-up">[jwiegley.github.io/git-from-the-bottom-up]</a> <br> -->
+					    Learn Git Branching <a href="https://learngitbranching.js.org/?locale=fr_FR">[learngitbranching.js.org]</a>
+					</p></small>
+				</section>
+				<section>
+					<h3>Git Cheat sheets</h3>
+					<small><p>
+						GitHub <a href="https://education.github.com/git-cheat-sheet-education.pdf">[education.github.com/git-cheat-sheet-education.pdf]</a> <br>
+						GitLab <a href="https://about.gitlab.com/images/press/git-cheat-sheet.pdf">[about.gitlab.com/images/press/git-cheat-sheet.pdf]</a> <br>
+						Git-Tower <a href="https://www.git-tower.com/blog/git-cheat-sheet">[git-tower.com/blog/git-cheat-sheet]</a> <br>
+					</p></small>
+				</section>
+			</div>
+		</div>
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>

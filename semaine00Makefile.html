@@ -18,16 +18,14 @@
 		<div class="reveal">
 			<div class="slides">
 			<section>
-				<a href="https://fr.wikipedia.org/wiki/Make">
-					<img src="./images/gnu-512.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
-				</a>
+				<img src="./images/gnu-512.png" style="height: 300px; margin: 0 auto 4rem auto; background: transparent;">
 				<h3>GNU Make</h3>
 				<p>
 					<small> <span style="color:rgb(50, 80, 119);">Eric Demers, Michel Gagnon et Lévis Thériault</span>    </small>
 				</p>
             </section>
             <section>
-                <h3><b>GNU Make</b> </h3>
+                <a href="https://fr.wikipedia.org/wiki/Make"><h3><b>GNU Make</b> </h3></a>
                 <p>Exécute des commandes pour traiter, compiler et assembler des fichiers</p>
                 <small>
                     <ul> 
@@ -156,7 +154,7 @@
                 # dans Les fables de La Fontaine
 
                 lafontaine.dat : livres/lafontaine.txt
-                    python compterlesmots.py livres/lafontaine.txt lafontaine.dat
+                    python compter_les_mots.py livres/lafontaine.txt lafontaine.dat
                 </code></pre>
             </section>
             <section>
@@ -166,7 +164,7 @@
                 # dans Les Fleurs du Mal de Charles Beaudelaire
 
                 beaudelaire.dat : livres/beaudelaire.txt
-                    python compterlesmots.py livres/beaudelaire.txt beaudelaire.dat
+                    python compter_les_mots.py livres/beaudelaire.txt beaudelaire.dat
                 </code></pre>
             </section>
             <section>
@@ -188,11 +186,11 @@
                 .PHONY : dats
                 dats : lafontaine.dat beaudelaire.dat
                     
-                lafontaine.dat : livres/lafontaine.txt compterlesmots.py
-                    python compterlesmots.py livres/lafontaine.txt lafontaine.dat
+                lafontaine.dat : livres/lafontaine.txt compter_les_mots.py
+                    python compter_les_mots.py livres/lafontaine.txt lafontaine.dat
                     
-                beaudelaire.dat : livres/beaudelaire.txt compterlesmots.py
-                    python compterlesmots.py livres/beaudelaire.txt lafontaine.dat
+                beaudelaire.dat : livres/beaudelaire.txt compter_les_mots.py
+                    python compter_les_mots.py livres/beaudelaire.txt lafontaine.dat
                 </code></pre>
             </section>
             <section>
@@ -203,11 +201,11 @@
                 .PHONY : dats
                     dats : lafontaine.dat beaudelaire.dat
                     
-                    lafontaine.dat : livres/lafontaine.txt compterlesmots.py
-                        python compterlesmots.py $< $@
+                    lafontaine.dat : livres/lafontaine.txt compter_les_mots.py
+                        python compter_les_mots.py $< $@
                     
-                    beaudelaire.dat : livres/beaudelaire.txt compterlesmots.py
-                        python compterlesmots.py $< $@
+                    beaudelaire.dat : livres/beaudelaire.txt compter_les_mots.py
+                        python compter_les_mots.py $< $@
                 </code></pre>
             </section>
             <section>
@@ -218,8 +216,8 @@
                 .PHONY : dats
                 dats : lafontaine.dat beaudelaire.dat
 
-                %.dat : livres/%.txt compterlesmots.py
-	                python compterlesmots.py $< $*.dat
+                %.dat : livres/%.txt compter_les_mots.py
+	                python compter_les_mots.py $< $*.dat
                 </code></pre>
             </section>
 

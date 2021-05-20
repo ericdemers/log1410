@@ -1,0 +1,195 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Cas d'utilisation</title>
+
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css" id="theme">
+		<link rel="stylesheet" href="css/reveal-override.css"/>
+
+		<!-- Theme used for syntax highlighted code -->
+		<link rel="stylesheet" href="plugin/highlight/monokai.css" id="highlight-theme">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+			<section>
+				<img src="./images/CasDutilisation.png" style="height: 350px; margin: 0 auto 4rem auto; background: transparent;">
+				<h3>Cas d'utilisation</h3>
+				<p>
+					<small> <span style="color:rgb(50, 80, 119);">Eric Demers et Lévis Thériault</span>    </small>
+				</p>
+            </section>
+
+            <section>
+                <p>Mieux les développeurs comprennent un système, plus il leur est facile de le concevoir et de le construire.</p>
+				<small>Référence: Steve Adolph et al., Patterns for Effective Use Cases</small>
+            </section>
+
+            <section>
+                <p>L'idée de cas d'utilisation pour décrire les exigences fonctionnelles a été introduite en 1986 par Ivar Jacobson.</p>
+
+                <img src="./images/IvarJacobson.png" style="height: 350px; margin: 0 auto 4rem auto; background: transparent;">
+			</section>
+
+			<section>
+				<h3>Ivar Jacobson</h3>
+				<p>Intuitivement, un cas d'utilisation est une séquence d'actions exécutées par le système pour produire un résultat de valeur observable pour un utilisateur particulier.</p>
+				<p><small>Référence: Ivar Jacobson, Aspect-oriented software developpment with use cases</small></p>
+			</section>
+
+			<section>
+				<h3>Popularité des cas d'utilisation</h3>
+				<p>
+				Les cas d'utilisation sont populaires en grande partie parce qu'ils racontent une histoire cohérentes sur la façon dont le système se comportera lors de son utilisation.
+				</p>
+				<p><small>Référence: Alistair Cockburn, Writing Effective Use Cases</small></p>
+			</section>
+
+			<section>
+				<h3>À quel moment les cas d'utilisation ajoutent-ils de la valeur?</h3>
+				<p>
+					<small>
+					<ul>
+						<li>Le premier moment auquel les cas d'utilisation créent de la valeur est lorsqu'ils sont nommés en tant qu'objectifs utilisateur que le système pendra en charge.</li>
+						<li>La liste des objectifs sera ensuite examinée pour discuter et évaluer les priorités au niveau du développement du système.</li>
+					</ul>
+					</small>
+				</p>
+				<p><small>Référence: Alistair Cockburn, Writing Effective Use Cases</small></p>
+			</section>
+
+			<section>
+				<h3>Pour être efficace, travaillez dans l'ordre suivant</h3>
+				<small>
+				<ol>
+					<li><b>Acteurs et objectifs</b>: Énumérez quels acteurs et quels objectifs le système soutiendra.</li>
+					<li><b>Scénario principal (succès)</b>: Pour les cas d'utilisation que vous avez choisi de poursuivre esquissez le scénario de réussite principal.</li>
+					<li><b>Condition d'échec</b>: Réfléchissez à tous les échecs qui pourraient survenir. Rédigez complètement cette liste avant de déterminer comment le système doit les gérer.</li>
+					<li><b>Gestion des échecs</b>: Gérer enfin les échecs. Écrivez comment le système est censé répondre à chacun des échecs.</li>
+				</ol>
+				</small>
+				<p><small>Référence: Alistair Cockburn, Writing Effective Use Cases</small></p>
+			</section>
+
+			<section>
+				<h3>Trois types d'acteurs</h3>
+				<small>
+				<ul>
+					<li><b>L'acteur principal</b>: Il a des buts d'utilisateur</li>
+					<li><b>L'acteur auxiliaire</b>: Il fournit un service au système</li>
+					<li><b>L'acteur hors champ</b>: Il a un intérêt dans le comportement du cas d'utilisation, sans être un acteur principal ou auxilière</li>
+				</ul>
+				</small>
+				<br>
+				<br>
+				<small>Les cas d'utilisation doivent montrer comment le système protège les intérêts de ces parties prenantes.</small>
+			</section>
+
+
+			<section>
+				<h3>Nommez les cas d'utilisation</h3>
+				<ul>
+				<li>Commencez par un verbe à l'infinitif.</li>
+				<li>Exemples: Traiter une vente, Réserver un voyage, S'inscrire à un cours</li>
+				</ul>
+			</section>
+
+			<section>
+				<h3>Objectif complet et unique</h3>
+				<p>Le test du processus d'affaire élémentaire</p>
+				<small>Tâche effectuée par une personne en un lieu et un temps donnés, en réponse à un événement, et qui ajoute une valuer commerciale mesurable et laisse les données dans un état cohérent.</small>
+			</section>
+
+			<section>
+				<h3>Précis et lisible</h3>
+				<small>
+				<p style="text-align:left;">Rédigez le cas d'utilisation pour qu'il soit suffisamment lisible pour que les parties prenantes prennent la peine de le lire et de l'évaluer, et suffisamment précis pour que les développeurs comprennent ce qu'ils construisent.</p>
+				</small>
+				<small>Référence: Steve Adolph et al., Patterns for Effective Use Cases</small>
+			</section>
+
+			<section>
+				<h3>Scénario principal (succès) et étapes</h3>
+				<small>
+				<p>Le scénario est composé d'étapes, lesquelles sont de trois sortes:</p>
+					<ul >
+						<li>Une interaction entre acteurs.</li>
+						<li>Une validation (généralement par le système).</li>
+						<li>Un changement d'état du système.</li>
+					</ul>
+				</small>
+				<br>
+				<br>
+				<small style="text-align:left;">En général, la première étape d'un cas d'utilisation n'obéit pas à cette classification, mais indique l'évènement qui déclenche le scénario.</small>
+				<br>
+				<br>
+				<small>Référence: Craig Larman et al., UML 2 et les design patterns</small>
+			</section>
+
+			<section>
+				<h3>Scénario principal (succès) et étapes</h3>
+				<p style="text-align:left;" >Exemple:</p>
+				<small>
+					<ol >
+						<li>Le Client arrive à la caisse avec les articles qu'il souhaite acheter.</li>
+						<li>Le Caissier commence une nouvelle vente.</li>
+						<li>Le Caissier entre le code de l'article.</li>
+						<li>Le Système enregistre l'article et présente sa description, son prix et le total en cours. </li>
+						<p>Le Caissier répète les étapes 3 et 4 jusqu'à épuisement des articles.</p>
+						<li>...</li>
+					</ol>
+				</small>
+				<br>
+				<br>
+				<small>Référence: Craig Larman et al., UML 2 et les design patterns</small>
+			</section>
+
+			<section>
+				<h3>Quelques ressources sur le web</h3>
+				<small>
+				<p><a href="https://fr.wikipedia.org/wiki/Cas_d%27utilisation"> Cas d'utilisation - Wikipedia </a></p>
+				<p><a href="https://www.youtube.com/watch?v=RfI2Fqgjaa4"> How to Draw UML Usecase Diagram using Draw.io - YouTube  </a></p>
+				<p><a href="https://www.youtube.com/watch?v=soID6Hg4uSw"> Effective Use Case Analysis in Enterprise Architect - YouTube  </a></p>
+				<p><a href="https://www.youtube.com/watch?v=5Gmc03uEILM&list=PLrqM9mC2UDdbUBrAxWElmGd69QUlYW-VM"> Steve Adolph, User Story Basics - YouTube </a></p>
+				</small>
+			</section>
+
+			<!--
+
+			<section>
+				<p>
+					<ul>
+						<li>Les diagrammes de cas d'utilisation et les relations entre les cas d'utilisation sont secondaires.</li>
+						<li>Les cas d'utilisation sont des documents textuels.</li>
+						<li>Les modéliser signifie avant tout rédiger.</li>
+					</ul>
+				</p>
+				<small>Référence: Craig Larman et al., UML 2 et les design patterns</small>
+            </section>
+			-->
+
+
+
+
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+				slideNumber: true,
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
